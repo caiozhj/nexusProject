@@ -19,6 +19,7 @@ import {
   MdOutlineShoppingCart,
   MdAccessibilityNew, MdAccountBalanceWallet, MdNextPlan, MdList, MdMedicalServices, MdMapsUgc, MdOutlinePermContactCalendar, MdOutlineWork, MdOutlineBusAlert
 } from "react-icons/md";
+import Consultas from "views/admin/servicoMedico";
 
 
 
@@ -37,7 +38,7 @@ const routes = [
     icon: 
       <Icon as={MdMedicalServices} width='20px' height='20px' color='inherit' />,
     
-    component: NFTMarketplace,
+    component: Consultas,
     secondary: true,
   },
 

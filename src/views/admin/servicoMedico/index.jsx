@@ -16,7 +16,7 @@ import {
 
 // Custom components
 import Banner from "views/admin/marketplace/components/Banner";
-import TableTopCreators from "views/admin/marketplace/components/TableTopCreators";
+import TableTopCreators from "views/admin/servicoMedico/components/TableTopCreators";
 import HistoryItem from "views/admin/marketplace/components/HistoryItem";
 import NFT from "components/card/NFT";
 import Card from "components/card/Card.js";
@@ -43,9 +43,9 @@ import {
   columnsDataColumns,
   columnsDataComplex,
 } from "views/admin/dataTables/variables/columnsData";
-import ComplexTable from "../dataTables/components/ComplexTable";
+import ComplexTable from "../servicoMedico/components/ComplexTable";
 
-export default function Marketplace() {
+export default function Consultas() {
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorBrand = useColorModeValue("brand.500", "white");
@@ -72,7 +72,7 @@ export default function Marketplace() {
               >
             
 
-              <ComplexTable  
+              <ComplexTable
                 columnsData={columnsDataColumns}
                 tableData={tableDataColumns}
               />
