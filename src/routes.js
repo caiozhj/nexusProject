@@ -1,14 +1,5 @@
 import React from "react";
 
-import { Icon } from "@chakra-ui/react";
-import {
-  MdBarChart,
-  MdPerson,
-  MdHome,
-  MdLock,
-  MdOutlineShoppingCart,
-} from "react-icons/md";
-
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
@@ -19,6 +10,18 @@ import RTL from "views/admin/rtl";
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
 
+import { Icon } from "@chakra-ui/react";
+import {
+  MdBarChart,
+  MdPerson,
+  MdHome,
+  MdLock,
+  MdOutlineShoppingCart,
+  MdAccessibilityNew, MdAccountBalanceWallet, MdNextPlan, MdList, MdMedicalServices, MdMapsUgc, MdOutlinePermContactCalendar, MdOutlineWork, MdOutlineBusAlert
+} from "react-icons/md";
+
+
+
 const routes = [
   {
     name: "Nexus Solutions",
@@ -28,60 +31,38 @@ const routes = [
     component: MainDashboard,
   },
   {
-    name: "Listagem de Medicos",
+    name: " Serviço Médico",
     layout: "/admin",
-    path: "/nft-marketplace",
+    path: "/servico-medico",
     icon: 
-      <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+      <Icon as={MdMedicalServices} width='20px' height='20px' color='inherit' />,
     
     component: NFTMarketplace,
     secondary: true,
   },
 
   {
-    name: "Listagem de Consultas",
+    name: "Consultas",
     layout: "/admin",
     path: "/nft-marketplace",
     icon: 
-      <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+      <Icon as={MdMapsUgc} width='20px' height='20px' color='inherit' />,
     
     component: NFTMarketplace,
     secondary: true,
   },
 
   {
-    name: "Listagem de Pacientes",
+    name: "Pacientes",
     layout: "/admin",
     path: "/nft-marketplace",
     icon: 
-      <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+      <Icon as={MdOutlinePermContactCalendar} width='20px' height='20px' color='inherit' />,
     
     component: NFTMarketplace,
     secondary: true,
   },
-  {
-    name: "Cadastro de Medicos",
-    layout: "/admin",
-    icon:<Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
-  },
-
-  {
-    name: "Cadastro de Pacientes",
-    layout: "/admin",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
-  },
-
-  {
-    name: "Formulario de Consulta",
-    layout: "/admin",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
-  },
+ 
 
   {
     name: "Estoque",
@@ -94,23 +75,25 @@ const routes = [
   {
     name: "Transporte",
     layout: "/admin",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdOutlineBusAlert} width='20px' height='20px' color='inherit' />,
     path: "/data-tables",
     component: DataTables,
   },
 
   {
-    name: "Financeiro",
+    name: "Contabilidade",
     layout: "/admin",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdOutlineWork} width='20px' height='20px' color='inherit' />,
     path: "/data-tables",
     component: DataTables,
   },
 
+
+
   {
-    name: "Protocolos de Atendimento",
+    name: "Relatórios",
     layout: "/admin",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdAccountBalanceWallet} width='20px' height='20px' color='inherit' />,
     path: "/data-tables",
     component: DataTables,
   },
