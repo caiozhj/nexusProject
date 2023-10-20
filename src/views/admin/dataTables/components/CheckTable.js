@@ -107,7 +107,7 @@ export default function CheckTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "PROGRESS") {
+                  } else if (cell.column.Header === "MATERIAL") {
                     data = (
                       <Flex align='center'>
                         <Text

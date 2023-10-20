@@ -60,7 +60,12 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 
 export default function UserReports() {
   // Chakra Color Mode
-  const brandColor = useColorModeValue("brand.500", "white");
+  const brandColor = useColorModeValue("brand.500", "grey.300");
+  const brandColor2 = useColorModeValue("brand.500", "green.300");
+  const brandColor3 = useColorModeValue("brand.500", "red.300");
+  const brandColor4 = useColorModeValue("brand.500", "red.600");
+  const brandColor5 = useColorModeValue("brand.500", "yellow.300");
+
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -79,8 +84,8 @@ export default function UserReports() {
               }
             />
           }
-          name='Earnings'
-          value='$350.4'
+          name='Totais de Atendimentos'
+          value='1.5K'
         />
         <MiniStatistics
           startContent={
@@ -89,34 +94,39 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor2} />
               }
             />
           }
-          name='Spend this month'
-          value='$642.39'
+          name='Atendimentos Finalizados'
+          value='820'
         />
-        <MiniStatistics growth='+23%' name='Sales' value='$574.34' />
         <MiniStatistics
-          endContent={
-            <Flex me='-16px' mt='10px'>
-              <FormLabel htmlFor='balance'>
-                <Avatar src={Usa} />
-              </FormLabel>
-              <Select
-                id='balance'
-                variant='mini'
-                mt='5px'
-                me='0px'
-                defaultValue='usd'>
-                <option value='usd'>USD</option>
-                <option value='eur'>EUR</option>
-                <option value='gba'>GBA</option>
-              </Select>
-            </Flex>
+
+          startContent={
+            <IconBox
+              w='56px'
+              h='56px'
+              bg={boxBg}
+              icon={
+                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor3} />
+              }
+            />
           }
-          name='Your balance'
-          value='$1,000'
+          name='Atendimentos em Aberto' value='520' />
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w='56px'
+              h='56px'
+              bg={boxBg}
+              icon={
+                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor4} />
+              }
+            />
+          }
+          name='Atendimentos Cancelados'
+          value='120'
         />
         <MiniStatistics
           startContent={
@@ -127,7 +137,7 @@ export default function UserReports() {
               icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
             />
           }
-          name='New Tasks'
+          name='Atendimentos Geolocalizados'
           value='154'
         />
         <MiniStatistics
@@ -137,19 +147,19 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor5} />
               }
             />
           }
-          name='Total Projects'
+          name='Atendimentos Especiais'
           value='2935'
         />
       </SimpleGrid>
 
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+      {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
         <TotalSpent />
         <WeeklyRevenue />
-      </SimpleGrid>
+      </SimpleGrid> */}
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
@@ -163,7 +173,7 @@ export default function UserReports() {
           tableData={tableDataComplex}
         />
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-          <Tasks />
+          {/* <Tasks /> */}
           <MiniCalendar h='100%' minW='100%' selectRange={false} />
         </SimpleGrid>
       </SimpleGrid>

@@ -157,7 +157,7 @@ export default function HeaderLinks(props) {
                 variant='no-hover'
                 color={textColor}
                 bg='transparent'>
-                Try Horizon Free
+                Next Solution
               </Button>
             </Link>
           </Flex>

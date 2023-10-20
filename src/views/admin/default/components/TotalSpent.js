@@ -46,7 +46,7 @@ export default function TotalSpent(props) {
       w='100%'
       mb='0px'
       {...rest}>
-      <Flex justify='space-between' ps='0px' pe='20px' pt='5px'>
+      {/* <Flex justify='space-between' ps='0px' pe='20px' pt='5px'>
         <Flex align='center' w='100%'>
           <Button
             bg={boxBg}
@@ -118,7 +118,7 @@ export default function TotalSpent(props) {
             chartOptions={lineChartOptionsTotalSpent}
           />
         </Box>
-      </Flex>
+      </Flex> */}
     </Card>
   );
 }
