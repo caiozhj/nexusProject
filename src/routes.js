@@ -3,6 +3,7 @@ import React from "react";
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
+import Paciente from "views/admin/paciente";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
 import RTL from "views/admin/rtl";
@@ -56,11 +57,11 @@ const routes = [
   {
     name: "Pacientes",
     layout: "/admin",
-    path: "/nft-marketplace",
+    path: "/Pacientes",
     icon: 
       <Icon as={MdOutlinePermContactCalendar} width='20px' height='20px' color='inherit' />,
     
-    component: NFTMarketplace,
+    component: Paciente,
     secondary: true,
   },
  

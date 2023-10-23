@@ -62,7 +62,7 @@ function SignIn() {
         flexDirection='column'>
         <Box me='auto'>
           <Heading color={textColor} fontSize='36px' mb='10px'>
-            Sign In
+          Login
           </Heading>
           <Text
             mb='36px'
@@ -70,7 +70,7 @@ function SignIn() {
             color={textColorSecondary}
             fontWeight='400'
             fontSize='md'>
-            Enter your email and password to sign in!
+            Entre com seu e-mail e senha para o login!
           </Text>
         </Box>
         <Flex
@@ -97,12 +97,12 @@ function SignIn() {
             _active={googleActive}
             _focus={googleActive}>
             <Icon as={FcGoogle} w='20px' h='20px' me='10px' />
-            Sign in with Google
+            Cadastre-se com o Google
           </Button>
           <Flex align='center' mb='25px'>
             <HSeparator />
             <Text color='gray.400' mx='14px'>
-              or
+              ou
             </Text>
             <HSeparator />
           </Flex>
@@ -122,7 +122,7 @@ function SignIn() {
               fontSize='sm'
               ms={{ base: "0px", md: "0px" }}
               type='email'
-              placeholder='mail@simmmple.com'
+              placeholder='email@exemplo.com'
               mb='24px'
               fontWeight='500'
               size='lg'
@@ -133,13 +133,13 @@ function SignIn() {
               fontWeight='500'
               color={textColor}
               display='flex'>
-              Password<Text color={brandStars}>*</Text>
+              Senha<Text color={brandStars}>*</Text>
             </FormLabel>
             <InputGroup size='md'>
               <Input
                 isRequired={true}
                 fontSize='sm'
-                placeholder='Min. 8 characters'
+                placeholder='Min. 8 caracteres'
                 mb='24px'
                 size='lg'
                 type={show ? "text" : "password"}
@@ -167,7 +167,7 @@ function SignIn() {
                   fontWeight='normal'
                   color={textColor}
                   fontSize='sm'>
-                  Keep me logged in
+                  Matenha-me conectado
                 </FormLabel>
               </FormControl>
               <NavLink to='/auth/forgot-password'>
@@ -176,7 +176,7 @@ function SignIn() {
                   fontSize='sm'
                   w='124px'
                   fontWeight='500'>
-                  Forgot password?
+                  Esqueceu sua senha?
                 </Text>
               </NavLink>
             </Flex>
@@ -187,7 +187,7 @@ function SignIn() {
               w='100%'
               h='50'
               mb='24px'>
-              Sign In
+              Entre!
             </Button>
           </FormControl>
           <Flex
@@ -197,14 +197,14 @@ function SignIn() {
             maxW='100%'
             mt='0px'>
             <Text color={textColorDetails} fontWeight='400' fontSize='14px'>
-              Not registered yet?
+              Não cadastrado ainda?
               <NavLink to='/auth/sign-up'>
                 <Text
                   color={textColorBrand}
                   as='span'
                   ms='5px'
                   fontWeight='500'>
-                  Create an Account
+                  Crie uma conta
                 </Text>
               </NavLink>
             </Text>
