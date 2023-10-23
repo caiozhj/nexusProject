@@ -1,14 +1,35 @@
+/* eslint-disable no-undef */
 import React from "react";
 
+import ModalPaciente from "./components/ModalPaciente";
+
 // Chakra imports
-import { Box, Flex, Grid, Spacer, Button } from "@chakra-ui/react";
+import { Box, Flex, Grid, Spacer, Button,   Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 // Custom components
-
+import { useDisclosure } from '@chakra-ui/react'
 import TablePaciente from "./components/TablePaciente";
 import Card from "components/card/Card.js";
 
+
+
 export default function Paciente() {
+
+  // modal
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const initialRef = React.useRef(null)
+  const finalRef = React.useRef(null)
+
+
+
+
   return (
     <Box pt={{ base: "180px", md: "80px", xl: "80px" }}>
       {/* Main Fields */}
@@ -32,21 +53,21 @@ export default function Paciente() {
               align={{ base: "start", md: "center" }}
             >
               <Flex>
-                <Box p="4" marginRight={2} >
-                <Button colorScheme='blue'>  Cadastrar </Button>
+                <Box p="2" marginRight={2} >
+                <Button colorScheme='telegram' variant='outline' onClick={onOpen} >  Cadastrar </Button>
                 
                 </Box>
                 <Spacer />
-                <Box p="4" >
-                <Button colorScheme='blue'>  Editar</Button>
+                <Box p="2" >
+                <Button colorScheme='telegram' variant='outline' >  Editar</Button>
                 </Box>
                 <Spacer />
-                <Box p="4" >
-                <Button colorScheme='blue'>  Excluir</Button>
+                <Box p="2" >
+                <Button colorScheme='telegram' variant='outline'>  Excluir</Button>
                 </Box>
                 <Spacer />
-                <Box p="4" >
-                <Button colorScheme='blue'>  Ajuda</Button>
+                <Box p="2" >
+                <Button colorScheme='telegram' variant='outline'>  Ajuda</Button>
                 </Box>
               </Flex>
             </Flex>
@@ -57,7 +78,7 @@ export default function Paciente() {
               justifyContent="space-between"
               direction={{ base: "column", md: "row" }}
               align={{ base: "start", md: "center" }}
-              marginTop={-7}
+              marginTop={-4}
             >
               <TablePaciente />
             </Flex>
@@ -70,6 +91,18 @@ export default function Paciente() {
           <Card px="0px" mb="20px"></Card>
         </Flex>
       </Grid>
+
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+       <ModalPaciente/>
+      </Modal>
+
+      
     </Box>
   );
 }
