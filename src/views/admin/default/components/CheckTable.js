@@ -32,7 +32,7 @@ import {
   ModalCloseButton,Box
 } from '@chakra-ui/react'
 
-import { useDisclosure } from '@chakra-ui/react'
+import { Link } from "react-router-dom";
 
 
 export default function CheckTable(props) {
@@ -41,7 +41,7 @@ export default function CheckTable(props) {
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+
 
   const tableInstance = useTable(
     {
@@ -71,7 +71,7 @@ export default function CheckTable(props) {
       w='100%'
       px='0px'
       overflowX={{ sm: "scroll", lg: "hidden" }} >
-      <Flex px='25px' justify='space-between' align='center' >
+      <Flex px='25px' justify='space-between' >
         <Text
           color={textColor}
           fontSize='22px'
@@ -80,7 +80,7 @@ export default function CheckTable(props) {
           Listagem de Consultas 
         </Text>
         <Box marginLeft={35} > 
-        <Button onClick={onOpen} colorScheme='blue' size='md'>Marcar Consulta</Button>
+       
         </Box>
         <Menu />
       </Flex>
@@ -138,7 +138,7 @@ export default function CheckTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "DATE") {
+                  } else if (cell.column.Header === "DATA") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

@@ -23,12 +23,6 @@ import TablePaciente from "./components/TablePaciente";
 import Card from "components/card/Card.js";
 import TableExame from "./components/TableExame";
 
-import { Icon } from "@chakra-ui/react";
-import {
- 
-  MdPerson
-} from "react-icons/md";
-
 
 
 export default function Paciente() {
@@ -68,12 +62,12 @@ export default function Paciente() {
             >
               <Flex>
                 <Box p="2" marginRight={2} >
-                <Button onClick={onOpen} colorScheme='teal' size='sm' >  Novo Paciente </Button>
+                <Button onClick={onOpen} colorScheme='blue' size='sm' >  Novo Paciente </Button>
                 
                 </Box>
                 <Spacer />  
                 <Box p="2" >
-                <Button  colorScheme='teal' size='sm'>  Novo Exame</Button>
+               
                 </Box>
                 <Spacer />
                 <Box p="2" >

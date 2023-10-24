@@ -67,7 +67,7 @@ function SignIn() {
   const handleLogin = () => {
     // Aqui você pode adicionar lógica de verificação de email e senha.
     // Por exemplo, você pode comparar o email e a senha com um valor esperado.
-    if (email === "caio@gmail.com" && password === "suasenha") {
+    if (email === "nexus@gmail.com" && password === "nexussolutions") {
       // Se as credenciais estiverem corretas, redirecione para a página principal.
       history.push("/admin");
     } else {

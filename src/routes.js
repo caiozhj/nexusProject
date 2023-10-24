@@ -7,6 +7,9 @@ import Paciente from "views/admin/paciente";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
 import RTL from "views/admin/rtl";
+import ListConsulta from "views/admin/consulta/ListConsulta";
+import ListMedico from "views/admin/medico/ListMedico";
+
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
@@ -39,18 +42,18 @@ const routes = [
     icon: 
       <Icon as={MdMedicalServices} width='20px' height='20px' color='inherit' />,
     
-    component: Consultas,
+    component: ListMedico,
     secondary: true,
   },
 
   {
     name: "Consultas",
     layout: "/admin",
-    path: "/nft-marketplace",
+    path: "/consultas",
     icon: 
       <Icon as={MdMapsUgc} width='20px' height='20px' color='inherit' />,
     
-    component: NFTMarketplace,
+    component: ListConsulta,
     secondary: true,
   },
 
