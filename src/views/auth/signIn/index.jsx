@@ -17,11 +17,17 @@ import {
 } from "@chakra-ui/react";
 import { HSeparator } from "components/separator/Separator";
 import DefaultAuth from "layouts/auth/Default";
+<<<<<<< HEAD
 import illustration from "assets/img/auth/auth.png";
+=======
+// Assets
+import illustration from "assets/img/auth/login.png";
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 
+<<<<<<< HEAD
 // export async function getServerSideProps() {
 //   const data = await fetch('/usuario.json');
 //   const dados = await data.json();
@@ -33,6 +39,19 @@ import { RiEyeCloseLine } from "react-icons/ri";
 // }
 
 function SignIn({  }) {
+=======
+import  { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import ReactDOM from 'react-dom';
+import 'assets/css/App.css';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import AuthLayout from 'layouts/auth';
+import AdminLayout from 'layouts/admin';
+
+function SignIn() {
+  // Chakra color mode
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -54,6 +73,7 @@ function SignIn({  }) {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
+<<<<<<< HEAD
   const userCredentials = [
     { email: 'user1@example.com', password: 'password1' },
     { email: 'user2@example.com', password: 'password2' },
@@ -76,6 +96,37 @@ function SignIn({  }) {
   };
 
   
+=======
+  const history = useHistory();
+
+  
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleLogin = () => {
+    // Aqui você pode adicionar lógica de verificação de email e senha.
+    // Por exemplo, você pode comparar o email e a senha com um valor esperado.
+    if (email === "nexus@gmail.com" && password === "nexussolutions") {
+      // Se as credenciais estiverem corretas, redirecione para a página principal.
+      history.push("/admin");
+    } else {
+      // Caso contrário, mostre uma mensagem de erro ou tome outra ação apropriada.
+      alert("Credenciais incorretas. Tente novamente.");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    // Atualize a variável de estado 'email' com o valor do campo de entrada de email
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    // Atualize a variável de estado 'password' com o valor do campo de entrada de senha
+    setPassword(e.target.value);
+  };
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
 
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
@@ -157,8 +208,13 @@ function SignIn({  }) {
               mb='24px'
               fontWeight='500'
               size='lg'
+<<<<<<< HEAD
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+=======
+              value={email} // Valor do campo é definido como a variável de estado 'email'
+              onChange={handleEmailChange}
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
             />
             <FormLabel
               ms='4px'
@@ -177,8 +233,13 @@ function SignIn({  }) {
                 size='lg'
                 type={show ? "text" : "password"}
                 variant='auth'
+<<<<<<< HEAD
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+=======
+                value={password} // Valor do campo é definido como a variável de estado 'password'
+          onChange={handlePasswordChange} 
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
               />
               <InputRightElement display='flex' alignItems='center' mt='4px'>
                 <Icon
@@ -191,9 +252,24 @@ function SignIn({  }) {
             </InputGroup>
             <Flex justifyContent='space between' align='center' mb='24px'>
               <FormControl display='flex' alignItems='center'>
+<<<<<<< HEAD
                 <Checkbox id='remember-login' colorScheme='brandScheme' me='10px' />
                 <FormLabel htmlFor='remember-login' mb='0' fontWeight='normal' color={textColor} fontSize='sm'>
                   Matenha-me conectado
+=======
+                <Checkbox
+                  id='remember-login'
+                  colorScheme='brandScheme'
+                  me='10px'
+                />
+                <FormLabel
+                  htmlFor='remember-login'
+                  mb='0'
+                  fontWeight='normal'
+                  color={textColor}
+                  fontSize='sm'>
+                  Mantenha-me conectado
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
                 </FormLabel>
               </FormControl>
               <NavLink to='/auth/forgot-password'>
@@ -203,6 +279,7 @@ function SignIn({  }) {
               </NavLink>
             </Flex>
             <Button
+<<<<<<< HEAD
               fontSize="sm"
               variant="brand"
               fontWeight="500"
@@ -211,6 +288,15 @@ function SignIn({  }) {
               mb="24px"
               onClick={handleLogin}
             >
+=======
+              fontSize='sm'
+              variant='brand'
+              fontWeight='500'
+              w='100%'
+              h='50'
+              mb='24px'
+              onClick={handleLogin}>
+>>>>>>> dd2dfc0c4adda8944ce30320a0720a5e27c6fe00
               Entre!
             </Button>
           </FormControl>
