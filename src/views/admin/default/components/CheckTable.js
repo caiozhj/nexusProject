@@ -8,7 +8,7 @@ import {
   Th,
   Thead,
   Tr,
-  useColorModeValue,
+  useColorModeValue,Button
 } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import {
@@ -21,11 +21,27 @@ import {
 // Custom components
 import Card from "components/card/Card";
 import Menu from "components/menu/MainMenu";
+
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,Box
+} from '@chakra-ui/react'
+
+import { useDisclosure } from '@chakra-ui/react'
+
+
 export default function CheckTable(props) {
   const { columnsData, tableData } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const tableInstance = useTable(
     {
@@ -54,15 +70,18 @@ export default function CheckTable(props) {
       direction='column'
       w='100%'
       px='0px'
-      overflowX={{ sm: "scroll", lg: "hidden" }}>
-      <Flex px='25px' justify='space-between' align='center'>
+      overflowX={{ sm: "scroll", lg: "hidden" }} >
+      <Flex px='25px' justify='space-between' align='center' >
         <Text
           color={textColor}
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Listagem de Consultas
+          Listagem de Consultas 
         </Text>
+        <Box marginLeft={35} > 
+        <Button onClick={onOpen} colorScheme='blue' size='md'>Marcar Consulta</Button>
+        </Box>
         <Menu />
       </Flex>
       <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>

@@ -1,7 +1,11 @@
 /* eslint-disable no-undef */
 import React from "react";
 
+import  { useState } from "react";
+
+
 import ModalPaciente from "./components/ModalPaciente";
+import ModalExame from "./components/ModalExame"
 
 // Chakra imports
 import { Box, Flex, Grid, Spacer, Button,   Modal,
@@ -10,12 +14,20 @@ import { Box, Flex, Grid, Spacer, Button,   Modal,
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
+  ModalCloseButton, FormControl, FormLabel, Input, Divider } from "@chakra-ui/react";
 
 // Custom components
 import { useDisclosure } from '@chakra-ui/react'
 import TablePaciente from "./components/TablePaciente";
+
 import Card from "components/card/Card.js";
+import TableExame from "./components/TableExame";
+
+import { Icon } from "@chakra-ui/react";
+import {
+ 
+  MdPerson
+} from "react-icons/md";
 
 
 
@@ -26,6 +38,8 @@ export default function Paciente() {
 
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
+
+
 
 
 
@@ -54,20 +68,16 @@ export default function Paciente() {
             >
               <Flex>
                 <Box p="2" marginRight={2} >
-                <Button colorScheme='telegram' variant='outline' onClick={onOpen} >  Cadastrar </Button>
+                <Button onClick={onOpen} colorScheme='teal' size='sm' >  Novo Paciente </Button>
                 
                 </Box>
-                <Spacer />
+                <Spacer />  
                 <Box p="2" >
-                <Button colorScheme='telegram' variant='outline' >  Editar</Button>
+                <Button  colorScheme='teal' size='sm'>  Novo Exame</Button>
                 </Box>
                 <Spacer />
                 <Box p="2" >
-                <Button colorScheme='telegram' variant='outline'>  Excluir</Button>
-                </Box>
-                <Spacer />
-                <Box p="2" >
-                <Button colorScheme='telegram' variant='outline'>  Ajuda</Button>
+               
                 </Box>
               </Flex>
             </Flex>
@@ -88,7 +98,9 @@ export default function Paciente() {
           flexDirection="column"
           gridArea={{ xl: "1 / 3 / 2 / 4", "2xl": "1 / 2 / 2 / 3" }}
         >
-          <Card px="0px" mb="20px"></Card>
+          <Card px="0px" mb="20px" marginTop="100px">
+            <TableExame />
+          </Card>
         </Flex>
       </Grid>
 
@@ -98,9 +110,12 @@ export default function Paciente() {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        size="xl"
       >
        <ModalPaciente/>
       </Modal>
+
+     
 
       
     </Box>

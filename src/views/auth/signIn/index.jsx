@@ -22,10 +22,19 @@ import {
 import { HSeparator } from "components/separator/Separator";
 import DefaultAuth from "layouts/auth/Default";
 // Assets
-import illustration from "assets/img/auth/auth.png";
+import illustration from "assets/img/auth/login.png";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
+
+import  { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import ReactDOM from 'react-dom';
+import 'assets/css/App.css';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import AuthLayout from 'layouts/auth';
+import AdminLayout from 'layouts/admin';
 
 function SignIn() {
   // Chakra color mode
@@ -46,6 +55,37 @@ function SignIn() {
   );
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+
+  const history = useHistory();
+
+  
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleLogin = () => {
+    // Aqui você pode adicionar lógica de verificação de email e senha.
+    // Por exemplo, você pode comparar o email e a senha com um valor esperado.
+    if (email === "caio@gmail.com" && password === "suasenha") {
+      // Se as credenciais estiverem corretas, redirecione para a página principal.
+      history.push("/admin");
+    } else {
+      // Caso contrário, mostre uma mensagem de erro ou tome outra ação apropriada.
+      alert("Credenciais incorretas. Tente novamente.");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    // Atualize a variável de estado 'email' com o valor do campo de entrada de email
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    // Atualize a variável de estado 'password' com o valor do campo de entrada de senha
+    setPassword(e.target.value);
+  };
+
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -126,6 +166,8 @@ function SignIn() {
               mb='24px'
               fontWeight='500'
               size='lg'
+              value={email} // Valor do campo é definido como a variável de estado 'email'
+              onChange={handleEmailChange}
             />
             <FormLabel
               ms='4px'
@@ -144,6 +186,8 @@ function SignIn() {
                 size='lg'
                 type={show ? "text" : "password"}
                 variant='auth'
+                value={password} // Valor do campo é definido como a variável de estado 'password'
+          onChange={handlePasswordChange} 
               />
               <InputRightElement display='flex' alignItems='center' mt='4px'>
                 <Icon
@@ -167,7 +211,7 @@ function SignIn() {
                   fontWeight='normal'
                   color={textColor}
                   fontSize='sm'>
-                  Matenha-me conectado
+                  Mantenha-me conectado
                 </FormLabel>
               </FormControl>
               <NavLink to='/auth/forgot-password'>
@@ -186,7 +230,8 @@ function SignIn() {
               fontWeight='500'
               w='100%'
               h='50'
-              mb='24px'>
+              mb='24px'
+              onClick={handleLogin}>
               Entre!
             </Button>
           </FormControl>
