@@ -1,8 +1,5 @@
-
-
-import React from "react";
-import { NavLink } from "react-router-dom";
-// Chakra imports
+import React, { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import {
   Box,
   Button,
@@ -18,17 +15,24 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Custom components
 import { HSeparator } from "components/separator/Separator";
 import DefaultAuth from "layouts/auth/Default";
-// Assets
 import illustration from "assets/img/auth/auth.png";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 
-function SignIn() {
-  // Chakra color mode
+// export async function getServerSideProps() {
+//   const data = await fetch('/usuario.json');
+//   const dados = await data.json();
+//   console.log("Dados da API:", dados);
+
+//   return {
+//     props: { dados }
+//   }
+// }
+
+function SignIn({  }) {
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -44,8 +48,35 @@ function SignIn() {
     { bg: "secondaryGray.300" },
     { bg: "whiteAlpha.200" }
   );
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+
+  const userCredentials = [
+    { email: 'user1@example.com', password: 'password1' },
+    { email: 'user2@example.com', password: 'password2' },
+    // Adicione mais usuários e senhas conforme necessário
+  ];
+  
+  const handleLogin = () => {
+    const foundUser = userCredentials.find(
+      (cred) => cred.email === email && cred.password === password
+    );
+  
+    if (foundUser) {
+      // Credenciais válidas, redirecione o usuário para a página após o login
+      history.push("/admin");
+      console.log("Credenciais Validas");
+    } else {
+      // Credenciais inválidas, você pode exibir uma mensagem de erro
+      console.log("Credenciais inválidas");
+    }
+  };
+
+  
+
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -62,7 +93,7 @@ function SignIn() {
         flexDirection='column'>
         <Box me='auto'>
           <Heading color={textColor} fontSize='36px' mb='10px'>
-          Login
+            Login
           </Heading>
           <Text
             mb='36px'
@@ -126,6 +157,8 @@ function SignIn() {
               mb='24px'
               fontWeight='500'
               size='lg'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <FormLabel
               ms='4px'
@@ -144,6 +177,8 @@ function SignIn() {
                 size='lg'
                 type={show ? "text" : "password"}
                 variant='auth'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <InputRightElement display='flex' alignItems='center' mt='4px'>
                 <Icon
@@ -154,56 +189,47 @@ function SignIn() {
                 />
               </InputRightElement>
             </InputGroup>
-            <Flex justifyContent='space-between' align='center' mb='24px'>
+            <Flex justifyContent='space between' align='center' mb='24px'>
               <FormControl display='flex' alignItems='center'>
-                <Checkbox
-                  id='remember-login'
-                  colorScheme='brandScheme'
-                  me='10px'
-                />
-                <FormLabel
-                  htmlFor='remember-login'
-                  mb='0'
-                  fontWeight='normal'
-                  color={textColor}
-                  fontSize='sm'>
+                <Checkbox id='remember-login' colorScheme='brandScheme' me='10px' />
+                <FormLabel htmlFor='remember-login' mb='0' fontWeight='normal' color={textColor} fontSize='sm'>
                   Matenha-me conectado
                 </FormLabel>
               </FormControl>
               <NavLink to='/auth/forgot-password'>
-                <Text
-                  color={textColorBrand}
-                  fontSize='sm'
-                  w='124px'
-                  fontWeight='500'>
+                <Text color={textColorBrand} fontSize='sm' w='124px' fontWeight='500'>
                   Esqueceu sua senha?
                 </Text>
               </NavLink>
             </Flex>
             <Button
-              fontSize='sm'
-              variant='brand'
-              fontWeight='500'
-              w='100%'
-              h='50'
-              mb='24px'>
+              fontSize="sm"
+              variant="brand"
+              fontWeight="500"
+              w="100%"
+              h="50"
+              mb="24px"
+              onClick={handleLogin}
+            >
               Entre!
             </Button>
           </FormControl>
           <Flex
-            flexDirection='column'
-            justifyContent='center'
-            alignItems='start'
-            maxW='100%'
-            mt='0px'>
-            <Text color={textColorDetails} fontWeight='400' fontSize='14px'>
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="start"
+            maxW="100%"
+            mt="0px"
+          >
+            <Text color={textColorDetails} fontWeight="400" fontSize="14px">
               Não cadastrado ainda?
-              <NavLink to='/auth/sign-up'>
+              <NavLink to="/auth/sign-up">
                 <Text
                   color={textColorBrand}
-                  as='span'
-                  ms='5px'
-                  fontWeight='500'>
+                  as="span"
+                  ms="5px"
+                  fontWeight="500"
+                >
                   Crie uma conta
                 </Text>
               </NavLink>
