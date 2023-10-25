@@ -25,6 +25,9 @@ import {
 } from "react-icons/md";
 import Consultas from "views/admin/servicoMedico";
 import ListEstoque from "views/admin/estoque/ListEstoque";
+import ListTransporte from "views/admin/transporte/ListTransporte";
+import ListRelatorio from "views/admin/relatorio/ListRelatorio";
+import ListContabilidade from "views/admin/contabilidade/ListContabilidade";
 
 
 
@@ -82,16 +85,16 @@ const routes = [
     name: "Transporte",
     layout: "/admin",
     icon: <Icon as={MdOutlineBusAlert} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
+    path: "/trasnporte",
+    component: ListTransporte,
   },
 
   {
     name: "Contabilidade",
     layout: "/admin",
     icon: <Icon as={MdOutlineWork} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
+    path: "/contabilidade",
+    component: ListContabilidade,
   },
 
 
@@ -100,8 +103,8 @@ const routes = [
     name: "Relatórios",
     layout: "/admin",
     icon: <Icon as={MdAccountBalanceWallet} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
+    path: "/relatorio",
+    component: ListRelatorio,
   },
   
   {
@@ -111,13 +114,13 @@ const routes = [
     icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
     component: SignInCentered,
   },
-  {
-    name: "RTL Admin",
-    layout: "/rtl",
-    path: "/rtl-default",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: RTL,
-  },
+  // {
+  //   name: "RTL Admin",
+  //   layout: "/rtl",
+  //   path: "/rtl-default",
+  //   icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+  //   component: RTL,
+  // },
 ];
 
 export default routes;

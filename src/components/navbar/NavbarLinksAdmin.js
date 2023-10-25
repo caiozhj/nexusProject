@@ -52,7 +52,7 @@ export default function HeaderLinks(props) {
 			borderRadius="30px"
 			boxShadow={shadow}>
 			<SearchBar mb={secondary ? { base: '10px', md: 'unset' } : 'unset'} me="10px" borderRadius="30px" />
-			<Flex
+			{/* <Flex
 				bg={ethBg}
 				display={secondary ? 'flex' : 'none'}
 				borderRadius="30px"
@@ -70,13 +70,13 @@ export default function HeaderLinks(props) {
 						ETH
 					</Text>
 				</Text>
-			</Flex>
+			</Flex> */}
 			<SidebarResponsive routes={routes} />
 			<Menu>
 				<MenuButton p="0px">
 					<Icon mt="6px" as={MdNotificationsNone} color={navbarIcon} w="18px" h="18px" me="10px" />
 				</MenuButton>
-				<MenuList
+				{/* <MenuList
 					boxShadow={shadow}
 					p="20px"
 					borderRadius="20px"
@@ -102,7 +102,7 @@ export default function HeaderLinks(props) {
 							<ItemContent info="Horizon Design System Free" aName="Josh Henry" />
 						</MenuItem>
 					</Flex>
-				</MenuList>
+				</MenuList> */}
 			</Menu>
 
       <Menu>
@@ -116,7 +116,7 @@ export default function HeaderLinks(props) {
             me='10px'
           />
         </MenuButton>
-        <MenuList
+        {/* <MenuList
           boxShadow={shadow}
           p='20px'
           me={{ base: "30px", md: "unset" }}
@@ -161,7 +161,7 @@ export default function HeaderLinks(props) {
               </Button>
             </Link>
           </Flex>
-        </MenuList>
+        </MenuList> */}
       </Menu>
 
 			<ThemeEditor navbarIcon={navbarIcon} />
@@ -178,7 +178,7 @@ export default function HeaderLinks(props) {
 						h="40px"
 					/>
 				</MenuButton>
-				<MenuList boxShadow={shadow} p="0px" mt="10px" borderRadius="20px" bg={menuBg} border="none">
+				{/* <MenuList boxShadow={shadow} p="0px" mt="10px" borderRadius="20px" bg={menuBg} border="none">
 					<Flex w="100%" mb="0px">
 						<Text
 							ps="20px"
@@ -209,7 +209,7 @@ export default function HeaderLinks(props) {
 							<Text fontSize="sm">Log out</Text>
 						</MenuItem>
 					</Flex>
-				</MenuList>
+				</MenuList> */}
 			</Menu>
 		</Flex>
 	);

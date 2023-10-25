@@ -33,8 +33,7 @@ import { tableColumnsTopCreators } from "views/admin/marketplace/variables/table
 import { useDisclosure } from '@chakra-ui/react'
 import TableEstoque from "./TableEstoque";
 import ModalEstoque from "./ModalEstoque";
-import MapComponent from "components/map/map";
-import SimpleMap from "components/map/map";
+
 import TableEstoqueFalta from "./TableEstoqueFalta";
 
 
