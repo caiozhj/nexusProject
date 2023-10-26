@@ -97,7 +97,7 @@ export default function TableEstoque() {
            
           </Tr>
         </Thead>
-        <Tbody >
+        {/* <Tbody >
         {dados.map((consulta, index) => (
                 <Tr key={index}>
                    <Th pe="10px" marginLeft={15}><Td >{consulta.paciente}</Td></Th>
@@ -108,7 +108,7 @@ export default function TableEstoque() {
                   <Th pe="10px" marginLeft={15}><Td >{consulta.medico}</Td></Th>
                 </Tr>
               ))}
-        </Tbody>
+        </Tbody> */}
       </Table>
     </Card>
   );

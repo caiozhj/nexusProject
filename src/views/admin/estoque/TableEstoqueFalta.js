@@ -96,7 +96,7 @@ export default function TableEstoqueFalta() {
            
           </Tr>
         </Thead>
-        <Tbody >
+        {/* <Tbody >
         {dados.map((consulta, index) => (
                 <Tr key={index}>
                    <Th pe="10px" marginLeft={15}><Td >{consulta.paciente}</Td></Th>
@@ -106,7 +106,7 @@ export default function TableEstoqueFalta() {
                   
                 </Tr>
               ))}
-        </Tbody>
+        </Tbody> */}
       </Table>
     </Card>
   );
