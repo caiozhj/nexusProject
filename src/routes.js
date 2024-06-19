@@ -33,7 +33,7 @@ import ListContabilidade from "views/admin/contabilidade/ListContabilidade";
 
 const routes = [
   {
-    name: "Nexus Solutions",
+    name: "Dashboard",
     layout: "/admin",
     path: "/default",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
