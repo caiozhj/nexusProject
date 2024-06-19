@@ -1,32 +1,32 @@
 [
   {
   "nome":["Eduardo David",false],
-  "especialidade": "Clinico Geral", 
-  "date": "12 Jan 2023",
-  "medico": "Dr. Fernando"  
+  "status": "Contas a Pagar", 
+  "contato": "919-45678901",
+  "apartamento": "06"  
 },
 {
   "nome":["Carlos Augusto",false],
-  "especialidade": "Urgencia", 
-  "date": "12 Jan 2023",
-  "medico": "Dr. Augusto" 
+  "status": "Pagamento Efetuado", 
+  "contato": "919-98765432",
+  "apartamento": "08B" 
 },
 {
   "nome":["Caio Alexandre",false],
-  "especialidade": "Cardiologista", 
-  "date": "12 Jan 2023",
-  "medico": "Dra. Caroline" 
+  "status": "Contas a Pagar", 
+  "contato": "919-24680135",
+  "apartamento": "435A" 
 },
 {
   "nome":["Bruna Pereira",false],
-  "especialidade": "Clinico Geral", 
-  "date": "12 Jan 2023",
-  "medico": "Dr. Carlos" 
+  "status": "Contas a Pagar", 
+  "contato": "919-36914725",
+  "apartamento": "05A" 
 },
 {
   "nome":["Maria Eduarda",false],
-  "especialidade": "Ortopedista", 
-  "date": "12 Jan 2023",
-  "medico": "Dr. Amoutim" 
+  "status": "Pagamento Efetuado", 
+  "contato": "919-36912798",
+  "apartamento": "15B" 
 }
 ]

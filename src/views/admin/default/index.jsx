@@ -62,8 +62,8 @@ export default function UserReports() {
               }
             />
           }
-          name='Totais de Atendimentos'
-          value='1.5K'
+          name='Total de Moradores'
+          value='1.5 Mil'
         />
         <MiniStatistics
           startContent={
@@ -76,8 +76,8 @@ export default function UserReports() {
               }
             />
           }
-          name='Atendimentos Finalizados'
-          value='820'
+          name='Visitantes Agendados'
+          value='82'
         />
         <MiniStatistics
 
@@ -91,7 +91,7 @@ export default function UserReports() {
               }
             />
           }
-          name='Atendimentos em Aberto' value='520' />
+          name='Vagas de Estacionamento' value='520' />
         <MiniStatistics
           startContent={
             <IconBox
@@ -103,8 +103,8 @@ export default function UserReports() {
               }
             />
           }
-          name='Atendimentos Cancelados'
-          value='120'
+          name='Vagas para Visitantes'
+          value='40'
         />
         <MiniStatistics
           startContent={
@@ -129,7 +129,7 @@ export default function UserReports() {
               }
             />
           }
-          name='Atendimentos Especiais'
+          name='Atendimentos '
           value='2935'
         />
       </SimpleGrid>

@@ -21,7 +21,8 @@ import {
   MdHome,
   MdLock,
   MdOutlineShoppingCart,
-  MdAccessibilityNew, MdAccountBalanceWallet, MdNextPlan, MdList, MdMedicalServices, MdMapsUgc, MdOutlinePermContactCalendar, MdOutlineWork, MdOutlineBusAlert
+  MdAccessibilityNew, MdAccountBalanceWallet, MdNextPlan, MdList, MdMedicalServices, MdMapsUgc, MdOutlinePermContactCalendar, 
+  MdOutlineWork, MdOutlineBusAlert, MdOutlineCabin
 } from "react-icons/md";
 import Consultas from "views/admin/servicoMedico";
 import ListEstoque from "views/admin/estoque/ListEstoque";
@@ -40,18 +41,18 @@ const routes = [
     component: MainDashboard,
   },
   {
-    name: " Serviço Médico",
+    name: " Condomínio",
     layout: "/admin",
     path: "/servico-medico",
     icon: 
-      <Icon as={MdMedicalServices} width='20px' height='20px' color='inherit' />,
+      <Icon as={MdOutlineCabin} width='20px' height='20px' color='inherit' />,
     
     component: ListMedico,
     secondary: true,
   },
 
   {
-    name: "Consultas",
+    name: "Portaria",
     layout: "/admin",
     path: "/consultas",
     icon: 
@@ -62,7 +63,7 @@ const routes = [
   },
 
   {
-    name: "Pacientes",
+    name: "Cadastro",
     layout: "/admin",
     path: "/Pacientes",
     icon: 
@@ -82,7 +83,7 @@ const routes = [
   },
 
   {
-    name: "Transporte",
+    name: "Vagas de Estacionamento",
     layout: "/admin",
     icon: <Icon as={MdOutlineBusAlert} width='20px' height='20px' color='inherit' />,
     path: "/trasnporte",

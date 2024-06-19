@@ -1,30 +1,30 @@
 [{
   "nome":["Dr. Carlos Eduardo",false],
-  "especialidade": "Clinico Geral", 
+  "agendamentos": "Salão de Festas", 
   "inicio": "12 Jan 2023",
   "fim": "13 Jan 2023"  
 },
 {
   "nome":["Dr. Carlos Augusto",false],
-  "especialidade": "Urgencia", 
+  "agendamentos": "Piscina", 
   "inicio": "12 Jan 2023",
   "fim": "13 Jan 2023" 
 },
 {
   "nome":["Dr. Caio Alexandre",false],
-  "especialidade": "Cardiologista", 
+  "agendamentos": "Churrasqueira B3", 
   "inicio": "12 Jan 2023",
   "fim": "13 Jan 2023" 
 },
 {
   "nome":["Dr. Bruna Pereira",false],
-  "especialidade": "Clinico Geral", 
+  "agendamentos": "Churrasqueira A3", 
   "inicio": "12 Jan 2023",
   "fim": "13 Jan 2023" 
 },
 {
   "nome":["Dr. Maria Eduarda",false],
-  "especialidade": "Ortopedista", 
+  "agendamentos": "Espaço Gourmet", 
   "inicio": "12 Jan 2023",
   "fim": "13 Jan 2023" 
 }

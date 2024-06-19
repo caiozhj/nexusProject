@@ -77,7 +77,7 @@ export default function CheckTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Listagem de Consultas 
+          Listagem de Moradores 
         </Text>
         <Box marginLeft={35} > 
        
@@ -126,7 +126,7 @@ export default function CheckTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "ESPECIALIDADE") {
+                  } else if (cell.column.Header === "STATUS") {
                     data = (
                       <Flex align='center'>
                         <Text
@@ -138,13 +138,13 @@ export default function CheckTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "DATA") {
+                  } else if (cell.column.Header === "CONTATO") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "MEDICO") {
+                  } else if (cell.column.Header === "APARTAMENTO") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

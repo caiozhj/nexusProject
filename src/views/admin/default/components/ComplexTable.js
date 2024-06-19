@@ -65,7 +65,7 @@ export default function ColumnsTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Atendimentos
+          Agendamentos
         </Text>
         <Menu />
       </Flex>
@@ -104,7 +104,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "ESPECIALIDADE") {
+                  } else if (cell.column.Header === "AGENDAMENTOS") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
