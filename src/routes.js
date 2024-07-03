@@ -9,7 +9,9 @@ import DataTables from "views/admin/dataTables";
 import RTL from "views/admin/rtl";
 import ListConsulta from "views/admin/consulta/ListConsulta";
 import ListMedico from "views/admin/medico/ListMedico";
-
+import ListVisitantes from "views/admin/visitantes/listVisitantes";
+import ListFuncionario from "views/admin/funcionario/ListFuncionario";
+import ListResidencias from "views/admin/residencias/ListResidencias";
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
@@ -22,13 +24,15 @@ import {
   MdLock,
   MdOutlineShoppingCart,
   MdAccessibilityNew, MdAccountBalanceWallet, MdNextPlan, MdList, MdMedicalServices, MdMapsUgc, MdOutlinePermContactCalendar, 
-  MdOutlineWork, MdOutlineBusAlert, MdOutlineCabin
+  MdOutlineWork, MdOutlineBusAlert, MdOutlineCabin, MdGroup, MdOutlineCardTravel, MdBusiness  
 } from "react-icons/md";
 import Consultas from "views/admin/servicoMedico";
 import ListEstoque from "views/admin/estoque/ListEstoque";
 import ListTransporte from "views/admin/transporte/ListTransporte";
 import ListRelatorio from "views/admin/relatorio/ListRelatorio";
 import ListContabilidade from "views/admin/contabilidade/ListContabilidade";
+import ListCondominio from "views/admin/condominio/listCondominio";
+import ListMorador from "views/admin/morador/listMorador";
 
 
 
@@ -41,35 +45,57 @@ const routes = [
     component: MainDashboard,
   },
   {
-    name: " Condomínio",
+    name: "Condomínio",
     layout: "/admin",
-    path: "/servico-medico",
+    path: "/condominio",
     icon: 
       <Icon as={MdOutlineCabin} width='20px' height='20px' color='inherit' />,
     
-    component: ListMedico,
+    component: ListCondominio,
     secondary: true,
   },
 
   {
-    name: "Portaria",
+    name: "Morador",
     layout: "/admin",
-    path: "/consultas",
+    path: "/morador",
     icon: 
-      <Icon as={MdMapsUgc} width='20px' height='20px' color='inherit' />,
+      <Icon as={MdGroup} width='20px' height='20px' color='inherit' />,
     
-    component: ListConsulta,
+    component: ListMorador,
     secondary: true,
   },
 
   {
-    name: "Cadastro",
+    name: "Funcionários",
     layout: "/admin",
-    path: "/Pacientes",
+    path: "/funcionario",
+    icon: 
+      <Icon as={MdOutlineCardTravel } width='20px' height='20px' color='inherit' />,
+    
+    component: ListFuncionario,
+    secondary: true,
+  },
+
+  {
+    name: "Visitantes",
+    layout: "/admin",
+    path: "/visitantes",
     icon: 
       <Icon as={MdOutlinePermContactCalendar} width='20px' height='20px' color='inherit' />,
     
-    component: Paciente,
+    component: ListVisitantes,
+    secondary: true,
+  },
+
+  {
+    name: "Residências",
+    layout: "/admin",
+    path: "/residencias",
+    icon: 
+      <Icon as={MdBusiness} width='20px' height='20px' color='inherit' />,
+    
+    component: ListResidencias,
     secondary: true,
   },
  
