@@ -91,7 +91,7 @@ const routes = [
   },
 
   {
-    name: "Contabilidade",
+    name: "Financeiro",
     layout: "/admin",
     icon: <Icon as={MdOutlineWork} width='20px' height='20px' color='inherit' />,
     path: "/contabilidade",

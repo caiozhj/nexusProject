@@ -1,38 +1,124 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
-  Center,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Divider,
   Flex,
-  Heading,
-  Text,
   useColorModeValue,
-  Image,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
-import illustration from "assets/img/manuntencao3.png";
 
-function ListContabilidade() {
-  const textColor = useColorModeValue("navy.700", "white");
+// components
+import TabReservas from "./plano-contas/tabReservas";
+import ModalInserir from "./plano-contas/modalInserir";
+
+export default function ListCondominio() {
+  const tabBg = useColorModeValue("gray.100", "gray.700");
+  const tabSelectedBg = useColorModeValue("blue.300");
+  const tabHoverBg = useColorModeValue("gray.200", "gray.600");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
-    <Center h="100vh">
-      <Flex
-        direction="column"
-        alignItems="center" // Centraliza os elementos na vertical
-      >
-        <Image
-          src={illustration}
-          alt="Ilustração"
-          maxW="50%" // Reduzimos a largura máxima para tornar a imagem menor
-        />
-        <Heading color={textColor} fontSize="36px" mt="20px" textAlign="center">
-          Pagina de Contabilidade
-        </Heading>
-        <Text color={textColor} mt="10px" textAlign="center">
-          Estamos em manuntencao
-        </Text>
-      </Flex>
-    </Center>
+    <Box p={5} bg={cardBg} borderRadius="lg" boxShadow="md" mx="auto">
+      <Box pt={{ base: "180px", md: "80px", xl: "80px" }}>
+        <Tabs variant="soft-rounded" colorScheme="green">
+          <Flex justify="center">
+            <TabList>
+              <Tab _hover={{ bg: tabHoverBg }} bg={tabBg}>
+                <Button
+                  onClick={handleModalOpen}
+                  _hover={{ bg: tabHoverBg }}
+                  bg={tabBg}
+                >
+                  Plano de Contas
+                </Button>
+              </Tab>
+              <Tab
+                _selected={{ bg: tabSelectedBg }}
+                _hover={{ bg: tabHoverBg }}
+                bg={tabBg}
+                isDisabled
+              >
+                Financeiro Baixa
+              </Tab>
+              <Tab
+                _selected={{ bg: tabSelectedBg }}
+                _hover={{ bg: tabHoverBg }}
+                bg={tabBg}
+                isDisabled
+              >
+                Entradas/Recebimentos
+              </Tab>
+              <Tab
+                _selected={{ bg: tabSelectedBg }}
+                _hover={{ bg: tabHoverBg }}
+                bg={tabBg}
+                isDisabled
+              >
+                Balancete
+              </Tab>
+            </TabList>
+          </Flex>
+
+          <TabPanels>
+            <TabPanel>
+              <TabReservas />
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>tres!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>Encomendas!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>Assembleia</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+
+        {/* Modal */}
+        <Modal isOpen={isModalOpen} onClose={handleModalClose} size="60%">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Plano de Contas</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <ModalInserir />
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={handleModalClose}>
+                Fechar
+              </Button>
+              {/* Outros botões de ação, se necessário */}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+    </Box>
   );
 }
-
-export default ListContabilidade;
