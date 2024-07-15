@@ -48,6 +48,9 @@
   "apexcharts": "3.35.2",
   
     
+  "axios": "^1.7.2",
+  
+    
   "babel-cli": "^6.26.0",
   
     
@@ -58,6 +61,9 @@
   
     
   "babel-register": "^6.26.0",
+  
+    
+  "dom-css": "^2.1.0",
   
     
   "framer-motion": "^4.1.17",
@@ -99,16 +105,25 @@
   "react-scripts": "5.0.0",
   
     
+  "react-smooth": "^4.0.1",
+  
+    
   "react-table": "^7.7.0",
   
     
   "recharts": "^2.12.7",
   
     
+  "recharts-scale": "^0.4.5",
+  
+    
   "stylis": "^4.1.1",
   
     
   "stylis-plugin-rtl": "2.0.2",
+  
+    
+  "victory-vendor": "^37.0.2",
   
     
   "web-vitals": "^1.1.2"
