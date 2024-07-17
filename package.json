@@ -223,6 +223,9 @@
   "devDependencies": {
   
     
+  "eslint-plugin-chakra-ui": "^0.11.0",
+  
+    
   "gh-pages": "^3.2.3"
   
   }

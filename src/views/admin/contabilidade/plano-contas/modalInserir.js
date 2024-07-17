@@ -76,15 +76,15 @@ export default function ModalInserir() {
   };
 
   const scheduleData = [
-    { id: 1, date: '01/07/2024', activity: 'Receitas', category: 'Receitas', status: 'Pago' },
-    { id: 2, date: '02/07/2024', activity: 'Taxa Condominio', category: 'Despesas', status: 'Pendente' },
-    { id: 3, date: '03/07/2024', activity: 'Reserva de Dependencia', category: 'Reservas', status: 'Pago' },
-    { id: 4, date: '04/07/2024', activity: 'Multas', category: 'Despesas', status: 'Pendente' },
-    { id: 5, date: '05/07/2024', activity: 'Juros', category: 'Despesas', status: 'Pago' },
-    { id: 6, date: '06/07/2024', activity: 'Multa Condominial', category: 'Despesas', status: 'Pago' },
-    { id: 7, date: '07/07/2024', activity: 'Agua', category: 'Despesas', status: 'Pendente' },
-    { id: 8, date: '08/07/2024', activity: 'Luz', category: 'Despesas', status: 'Pago' },
-    { id: 9, date: '09/07/2024', activity: 'Fundos de Reservas', category: 'Reservas', status: 'Pendente' },
+    { id: 1, date: '01/07/2024', activity: 'Receitas', category: 'Receitas', status: '$30000' },
+    { id: 2, date: '02/07/2024', activity: 'Taxa Condominio', category: 'Despesas', status: '$200' },
+    { id: 3, date: '03/07/2024', activity: 'Reserva de Dependencia', category: 'Reservas', status: '$50' },
+    { id: 4, date: '04/07/2024', activity: 'Multas', category: 'Despesas', status: '$200' },
+    { id: 5, date: '05/07/2024', activity: 'Juros', category: 'Despesas', status: '$2%' },
+    { id: 6, date: '06/07/2024', activity: 'Multa Condominial', category: 'Despesas', status: '$10' },
+    { id: 7, date: '07/07/2024', activity: 'Agua', category: 'Despesas', status: '$30' },
+    { id: 8, date: '08/07/2024', activity: 'Luz', category: 'Despesas', status: '----' },
+    { id: 9, date: '09/07/2024', activity: 'Fundos de Reservas', category: '$eservas', status: '$50' },
   ];
 
   const handleEdit = (id) => {

@@ -2,47 +2,57 @@ import React, { useState } from "react";
 import {
   Box,
   Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
+  FormControl,
+  FormLabel,
+  Input,
   Button,
   useToast,
   Link,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { postCriarPix } from "api/service";
 
-const moradores = [
-  { nome: "Morador 1", email: "morador1@example.com", cpf: "15635303099", valor: 10 },
-  { nome: "Morador 2", email: "morador2@example.com", cpf: "54387485000", valor: 20 },
-  { nome: "Morador 3", email: "morador3@example.com", cpf: "68936985000", valor: 30 },
-];
-
-export default function ListaMoradores() {
-  const [ticketUrls, setTicketUrls] = useState({});
-  const [loading, setLoading] = useState(false);
+export default function ModalPagamentoPendente() {
+  const [formData, setFormData] = useState({
+    transaction_amount: "",
+    description: "",
+    email: "",
+    first_name: "",
+    last_name: "",
+    identificationType: "CPF",
+    number: "68936985000",
+    paymentMethodId: "bolbradesco",
+    zip_code: "",
+    street_name: "",
+    street_number: "",
+    neighborhood: "",
+    city: "",
+    federal_unit: "",
+  });
+  const [ticketUrl, setTicketUrl] = useState("");
   const toast = useToast();
 
-  const handlePostCriarPix = (morador) => {
-    setLoading(true);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handlePostCriarPix = () => {
     const requestData = {
-      transaction_amount: morador.valor,
-      description: "Pagamento de teste",
-      email: morador.email,
-      identificationType: "CPF",
-      number: morador.cpf,
-      paymentMethodId: "pix",
+      ...formData,
+      transaction_amount: parseFloat(formData.transaction_amount), // Converting to a numeric value
+      payer: {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+      },
     };
 
     postCriarPix(requestData)
       .then((response) => {
-        console.log("response");
-        setTicketUrls((prevUrls) => ({
-          ...prevUrls,
-          [morador.email]: response.data.point_of_interaction.transaction_data.ticket_url,
-        }));
+        setTicketUrl(response.data.point_of_interaction.transaction_data.ticket_url);
         toast({
           title: "Pagamento criado com sucesso!",
           status: "success",
@@ -58,52 +68,157 @@ export default function ListaMoradores() {
           duration: 5000,
           isClosable: true,
         });
-      })
-      .finally(() => {
-        setLoading(false);
       });
   };
 
   return (
-    <Box p={5} bg="white" borderRadius="lg" boxShadow="md" mx="auto">
+    <Box p={5} bg="white" borderRadius="lg" boxShadow="md" mx="auto" w="full">
       <Heading as="h3" size="lg" mb={6} textAlign="center">
-        Lista de Moradores
+        Adicionar Pagamento Pendente
       </Heading>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>Nome</Th>
-            <Th>Email</Th>
-            <Th>Valor</Th>
-            <Th>Ações</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {moradores.map((morador) => (
-            <Tr key={morador.email}>
-              <Td>{morador.nome}</Td>
-              <Td>{morador.email}</Td>
-              <Td>R$ {morador.valor}</Td>
-              <Td>
-                <Button
-                  colorScheme="blue"
-                  onClick={() => handlePostCriarPix(morador)}
-                  isLoading={loading}
-                >
-                  Gerar Pagamento
-                </Button>
-                {ticketUrls[morador.email] && (
-                  <Box mt={2}>
-                    <Link href={ticketUrls[morador.email]} isExternal>
-                      <Button colorScheme="blue">Abrir Ticket</Button>
-                    </Link>
-                  </Box>
-                )}
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
+      <form>
+        <SimpleGrid columns={[1, null, 2]} spacing={4} mb={4}>
+          <FormControl>
+            <FormLabel>Valor da Transação</FormLabel>
+            <Input
+              type="number"
+              name="transaction_amount"
+              value={formData.transaction_amount}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Descrição</FormLabel>
+            <Input
+              type="text"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+        </SimpleGrid>
+        <SimpleGrid columns={[1, null, 2]} spacing={4} mb={4}>
+          <FormControl>
+            <FormLabel>Email</FormLabel>
+            <Input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>CPF</FormLabel>
+            <Input
+              type="text"
+              name="number"
+              value={formData.number}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+        </SimpleGrid>
+        <SimpleGrid columns={[1, null, 2]} spacing={4} mb={4}>
+          <FormControl>
+            <FormLabel>Primeiro Nome</FormLabel>
+            <Input
+              type="text"
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Sobrenome</FormLabel>
+            <Input
+              type="text"
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+        </SimpleGrid>
+        <SimpleGrid columns={[1, null, 4]} spacing={4} mb={4}>
+          <FormControl>
+            <FormLabel>Unidade Federal</FormLabel>
+            <Input
+              type="text"
+              name="federal_unit"
+              value={formData.federal_unit}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Cidade</FormLabel>
+            <Input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Número</FormLabel>
+            <Input
+              type="text"
+              name="street_number"
+              value={formData.street_number}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Bairro</FormLabel>
+            <Input
+              type="text"
+              name="neighborhood"
+              value={formData.neighborhood}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+        </SimpleGrid>
+        <SimpleGrid columns={[1, null, 2]} spacing={4} mb={4}>
+          <FormControl>
+            <FormLabel>CEP</FormLabel>
+            <Input
+              type="text"
+              name="zip_code"
+              value={formData.zip_code}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Nome da Rua</FormLabel>
+            <Input
+              type="text"
+              name="street_name"
+              value={formData.street_name}
+              onChange={handleChange}
+              w="full"
+            />
+          </FormControl>
+        </SimpleGrid>
+        <Button colorScheme="blue" onClick={handlePostCriarPix} width="full">
+          Enviar cobrança
+        </Button>
+      </form>
+
+      {ticketUrl && (
+        <Box mt={4}>
+          <Link href={ticketUrl} isExternal>
+            <Button colorScheme="blue" width="full">Abrir Ticket</Button>
+          </Link>
+        </Box>
+      )}
     </Box>
   );
 }
