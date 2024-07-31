@@ -5,6 +5,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Select,
   Button,
   useToast,
   Link,
@@ -21,7 +22,7 @@ export default function ModalPagamentoPendente() {
     last_name: "",
     identificationType: "CPF",
     number: "68936985000",
-    paymentMethodId: "bolbradesco",
+    paymentMethodId: "pix", // default to "pix"
     zip_code: "",
     street_name: "",
     street_number: "",
@@ -207,6 +208,18 @@ export default function ModalPagamentoPendente() {
             />
           </FormControl>
         </SimpleGrid>
+        <FormControl mb={4}>
+          <FormLabel>Método de Pagamento</FormLabel>
+          <Select
+            name="paymentMethodId"
+            value={formData.paymentMethodId}
+            onChange={handleChange}
+            w="full"
+          >
+            <option value="pix">Pix</option>
+            <option value="bolbradesco">Boleto</option>
+          </Select>
+        </FormControl>
         <Button colorScheme="blue" onClick={handlePostCriarPix} width="full">
           Enviar cobrança
         </Button>

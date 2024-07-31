@@ -13,6 +13,8 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Select,
+  Link,
 } from '@chakra-ui/react';
 import { postCriarPix } from 'api/service';
 
@@ -31,6 +33,7 @@ const ResidentDetails = ({ resident, onClose }) => {
   const [ticketUrls, setTicketUrls] = useState({});
   const [loading, setLoading] = useState(false);
   const [paymentDescription, setPaymentDescription] = useState('');
+  const [paymentMethodId, setPaymentMethodId] = useState('pix'); // default to "pix"
   const toast = useToast();
 
   const handlePostCriarPix = () => {
@@ -44,7 +47,7 @@ const ResidentDetails = ({ resident, onClose }) => {
       last_name: resident.last_name,
       identificationType: "CPF",
       number: "68936985000",
-      paymentMethodId: "bolbradesco",
+      paymentMethodId: paymentMethodId,
       zip_code: resident.zip_code,
       street_name: resident.street_name,
       street_number: resident.street_number,
@@ -94,6 +97,10 @@ const ResidentDetails = ({ resident, onClose }) => {
 
   const handleChangeDescription = (event) => {
     setPaymentDescription(event.target.value);
+  };
+
+  const handleChangePaymentMethod = (event) => {
+    setPaymentMethodId(event.target.value);
   };
 
   return (
@@ -147,9 +154,19 @@ const ResidentDetails = ({ resident, onClose }) => {
           <FormLabel>Descrição do Pagamento</FormLabel>
           <Input
             type="text"
-            value={paymentDescription }
+            value={paymentDescription}
             onChange={handleChangeDescription}
           />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Método de Pagamento</FormLabel>
+          <Select
+            value={paymentMethodId}
+            onChange={handleChangePaymentMethod}
+          >
+            <option value="pix">Pix</option>
+            <option value="bolbradesco">Boleto</option>
+          </Select>
         </FormControl>
         <Button
           colorScheme="teal"
@@ -162,7 +179,7 @@ const ResidentDetails = ({ resident, onClose }) => {
         <Button colorScheme="blue" onClick={onClose} width="full">
           Fechar
         </Button>
-        {/* {ticketUrls[resident.email] && (
+        {ticketUrls[resident.email] && (
           <Box mt={2} width="full">
             <Link href={ticketUrls[resident.email].ticketUrl} isExternal>
               <Button colorScheme="blue" width="full">
@@ -173,7 +190,7 @@ const ResidentDetails = ({ resident, onClose }) => {
               Status: {ticketUrls[resident.email].status}
             </Text>
           </Box>
-        )} */}
+        )}
       </VStack>
     </Box>
   );
