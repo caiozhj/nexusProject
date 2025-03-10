@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export async function postCriarPix(body) {
-  return await axios.post("http://localhost:3001/criar-pix", body)
+  return await axios.post("  https://d014-206-84-63-210.ngrok-free.app/criar-pix", body)
+  // return await axios.post("http://localhost:3001/criar-pix", body)
+
     .then(response => {
       return response.data; // Retorne os dados da resposta
     })

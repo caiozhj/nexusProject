@@ -46,7 +46,7 @@ const ResidentDetails = ({ resident, onClose }) => {
       first_name: resident.first_name,
       last_name: resident.last_name,
       identificationType: "CPF",
-      number: "68936985000",
+      number: "70854896007",
       paymentMethodId: paymentMethodId,
       zip_code: resident.zip_code,
       street_name: resident.street_name,
