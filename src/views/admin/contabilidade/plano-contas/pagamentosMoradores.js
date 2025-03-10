@@ -72,7 +72,7 @@ export default function TableCadastro() {
       cpf: "625.983.049-00",
       quantidadeMoradores: 2,
       status: "Pagamentos atrasados",
-      transaction_amount: 20,
+      transaction_amount: 100,
       description: "Pagamento de Condominio",
       email: "carlos.barbosa@itec.ufpa.br",
       first_name: "Maria Fernanda",

@@ -55,7 +55,7 @@ function SignIn({  }) {
   const handleClick = () => setShow(!show);
 
   const userCredentials = [
-    { email: 'nexus@gmail.com', password: 'nexussolutions' },
+    { email: 'nexus@gmail.com', password: '123456' },
     { email: 'user2@example.com', password: 'password2' },
     // Adicione mais usuários e senhas conforme necessário
   ];
